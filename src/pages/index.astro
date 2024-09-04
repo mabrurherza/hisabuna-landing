@@ -1,0 +1,103 @@
+---
+import MainLayout from "../layout/MainLayout.astro";
+import FeatureCard from "../component/homepage/FeatureCard.astro";
+import PricingCard from "../component/homepage/PricingCard.astro";
+---
+
+<MainLayout>
+  <section
+    class="bg-superlight h-full lg:h-[90svh] w-full pt-32 lg:pt-24 px-5 lg:px-16 pb-5 gap-5 flex flex-col-reverse justify-between lg:flex-row items-center"
+  >
+    <div class="flex flex-col gap-5 w-full flex-1">
+      <h1 class="text-4xl text-emerald-900 w-full">
+        Effortless Accounting, Elevated Results.
+      </h1>
+      <p class="text-lg leading-snug max-w-[600px] w-full">
+        Simplify your financial journey with our intuitive Accounting App.
+        Streamline processes, enhance accuracy, and drive your business forward.
+        Get started today for a smarter, more efficient approach to financial
+        management.
+      </p>
+      <div class="flex flex-col lg:flex-row gap-3 w-full max-w-[600px]">
+        <a href="#pricing" class="w-full">
+          <button
+            class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-full text-lg w-full"
+            >See pricing</button
+          >
+        </a>
+        <button
+          class="border border-zinc-300 hover:bg-zinc-100 px-8 py-3 rounded-full text-lg w-full"
+          >Ask for trial</button
+        >
+      </div>
+    </div>
+    <div class="grid place-items-center flex-1">
+      <img
+        class="w-full"
+        src="/asset/mockup-hisabuna.png"
+        alt="Preview of Hisabuna App"
+      />
+    </div>
+  </section>
+
+  <section class="py-10 px-5 md:px-16 md:py-24 border-b border-zinc-300">
+    <h2 class="text-3xl md:text-4xl text-emerald-900 max-w-[400px] pb-16">
+      All your payments and cash flow needs, sorted.
+    </h2>
+
+    <div class="flex flex-col md:flex-row gap-10">
+      <FeatureCard
+        title="Feature #1"
+        description="Pay suppliers or employees globally with a single click. Save hours every week by removing data entry. Collaborate with maintained control using approval flows."
+        image="https://framerusercontent.com/images/fWR7L3G9ELgGpGOiQVZlR6Cung.svg"
+      />
+      <FeatureCard
+        title="Feature #2"
+        description="Access pre-approved credit to pay suppliers later, or unlock Instant Payouts from customer invoices. View all incoming & outgoing cash flows in one place."
+        image="https://framerusercontent.com/images/NLvQvWaqrUipq5HmSGJAow0BGA.svg"
+      />
+      <FeatureCard
+        title="Feature #3"
+        description="Offer customers beautiful payment portals and flexible payment terms. Set up reminders and direct debits. Or access instant payouts. All with automated reconciliation."
+        image="https://framerusercontent.com/images/0kaBjVVyY5nvnSUKitg6SXbSaQ.svg"
+      />
+    </div>
+  </section>
+
+  <section class="py-10 px-5 md:py-16 md:px-16 bg-superlight" id="pricing">
+    <h2 class="text-3xl md:text-4xl text-emerald-800 max-w-[400px] pb-10">
+      Pricing
+    </h2>
+    <div class="flex flex-col md:flex-row gap-10">
+      <PricingCard
+        subtitle="Starter"
+        price="Free"
+        features={[
+          "Unlimited payroll payments",
+          "5 suppliers payment/month",
+          "Unlimited users",
+        ]}
+      />
+      <PricingCard
+        subtitle="Basic"
+        price="250000"
+        features={[
+          "Unlimited payroll payments",
+          "5 suppliers payment/month",
+          "Unlimited users",
+          "Hisabuna Premium",
+        ]}
+      />
+      <PricingCard
+        subtitle="Pro"
+        price="500000"
+        features={[
+          "Unlimited payroll payments",
+          "5 suppliers payment/month",
+          "Unlimited users",
+          "Hisabuna Professional",
+        ]}
+      />
+    </div>
+  </section>
+</MainLayout>

@@ -1,0 +1,180 @@
+---
+const data = {
+  pendapatan: [
+    { deskripsi: "Pendapatan Jasa Cuci Sepatu", jumlah: 5000000 },
+    { deskripsi: "Pendapatan Jasa Perbaikan Sepatu", jumlah: 1500000 },
+    { deskripsi: "Pendapatan Jasa Pewarnaan Sepatu", jumlah: 800000 },
+    { deskripsi: "Pendapatan Jasa Cuci Tas", jumlah: 1200000 },
+    { deskripsi: "Pendapatan Jasa Cuci Jaket", jumlah: 700000 },
+    { deskripsi: "Pendapatan Lain-lain", jumlah: 300000 },
+  ],
+  hargaPokokPendapatan: [
+    { deskripsi: "Biaya Bahan Baku (Deterjen, dll)", jumlah: 1000000 },
+    { deskripsi: "Biaya Tenaga Kerja Langsung", jumlah: 2500000 },
+    { deskripsi: "Penyusutan Peralatan", jumlah: 500000 },
+    { deskripsi: "Biaya Listrik", jumlah: 300000 },
+    { deskripsi: "Biaya Air", jumlah: 100000 },
+    { deskripsi: "Biaya Pengemasan", jumlah: 200000 },
+  ],
+  beban: [
+    { deskripsi: "Biaya Sewa", jumlah: 1200000 },
+    { deskripsi: "Biaya Gaji Karyawan", jumlah: 1800000 },
+    { deskripsi: "Biaya Promosi", jumlah: 500000 },
+    { deskripsi: "Biaya Telepon dan Internet", jumlah: 200000 },
+    { deskripsi: "Biaya Perlengkapan Kantor", jumlah: 100000 },
+    { deskripsi: "Biaya Pajak", jumlah: 300000 },
+    { deskripsi: "Beban Operasional Lain-lain", jumlah: 400000 },
+  ],
+};
+---
+
+<!doctype html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 20px;
+        color: #333;
+        font-size: 14px;
+      }
+
+      .company-logo {
+        width: 100px;
+        height: 100px;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+      }
+
+      .company-name {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .report-title {
+        font-size: 32px;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 24px;
+        border-bottom: black 1px solid;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      table.main-data {
+        margin-bottom: 80px;
+      }
+
+      table.main-data tr:nth-child(odd) {
+        background-color: #f4f4f5;
+      }
+
+      table.main-data tr td {
+        padding: 8px 8px 8px 12px;
+      }
+
+      .data-desc {
+        width: 80%;
+      }
+
+      .data-number {
+        text-align: right;
+      }
+
+      .total {
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      table.main-data tr:nth-last-child(2) td.data-number {
+        border-bottom: solid 1px black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>LAPORAN LABA RUGI</h1>
+    <h4>Insan Kreatif Cendekia</h4>
+
+    <table style="padding-bottom: 8px; border-bottom: black 1px solid;">
+      <tr>
+        <td>
+          <img src="/company-logo.jpg" class="company-logo" />
+        </td>
+        <td style="text-align: right;">
+          <h3 class="company-name">Insan Kreatif Cendekia</h3>
+        </td>
+      </tr>
+    </table>
+    <h1 class="report-title">LAPORAN LABA RUGI</h1>
+
+    <!-- @foreach ($data as $category => $details)
+        <table>
+            <h3 style="padding: 0; margin: 0;" class="tes">{{ $category }}</h3>
+            @foreach ($details['Detail'] as $item => $amount)
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;{{ $item }}</td>
+                    <td style="text-align: right;">{{ number_format($amount, 0, ',', '.') }}</td>
+                </tr>
+            @endforeach
+            <tr class="total">
+                <td>Total {{ $category }}</td>
+                <td style="text-align: right;">{{ number_format($details['Jumlah'], 0, ',', '.') }}</td>
+            </tr>
+        </table>
+    @endforeach -->
+
+    {
+      Object.keys(data).map((key) => (
+        <table class="main-data">
+          <tbody>
+            <h3 style="font-size: 20px; padding-bottom: 12px;">
+              {key.charAt(0).toUpperCase() + key.slice(1)}
+            </h3>
+            {data[key].map((item) => (
+              <tr>
+                <td class="data-desc">{item.deskripsi}</td>
+                <td class="data-number">{item.jumlah}</td>
+              </tr>
+            ))}
+            <tr
+              class="total"
+              style="border-bottom: 2px solid black; background:#d4d4d8;"
+            >
+              <td style="padding: 18px 4px 18px 12px;">Total</td>
+              <td style="text-align: right;">100000</td>
+            </tr>
+          </tbody>
+        </table>
+      ))
+    }
+
+    <table style="margin: 24px 0 24px 0; border-bottom: 1px solid black;">
+      <tr class="total" style="font-size: 20px; ">
+        <td>Saldo Laba (Rugi) Tahun Berjalan</td>
+        <td style="text-align: right;">Angka</td>
+      </tr>
+    </table>
+
+    <table style="width: 100%; margin-top: 70px;">
+      <tr>
+        <td style="text-align: center; width: 35%;">
+          <div>Dibuat oleh, Nama Kiri</div>
+          <div style="height: 80px;"></div>
+          <div><strong>Staff Keuangan</strong></div>
+        </td>
+        <td style="width: 10%;"></td>
+        <td style="width: 10%;"></td>
+        <td style="width: 10%;"></td>
+        <td style="text-align: center; width: 35%;">
+          <div>Disetujui oleh, Nama Kanan</div>
+          <div style="height: 80px;"></div>
+          <div><strong>Manager Keuangan</strong></div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

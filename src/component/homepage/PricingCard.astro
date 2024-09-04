@@ -1,0 +1,49 @@
+---
+const { subtitle, price, features, image } = Astro.props;
+---
+
+<div
+  class="flex flex-col gap-5 max-w-[600px] w-full bg-white border border-zinc-300 rounded-xl p-4 lg:p-6"
+>
+  <p class="uppercase text-sm tracking-widest text-zinc-500">{subtitle}</p>
+  {
+    price === "Free" ? (
+      <p class="text-4xl">Free</p>
+    ) : (
+      <p class="text-4xl">
+        Rp{new Intl.NumberFormat("id-ID").format(price)}
+        <span class="text-sm text-zinc-500">/month</span>
+      </p>
+    )
+  }
+  <ul class="flex flex-col gap-4 flex-1">
+    {
+      features.map((feature) => (
+        <li class="flex gap-2 items-center">
+          <div class="w-6">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              style="width: 100%; height: 100%; display: inline-block; fill: #12B981; flex-shrink: 0;"
+              focusable="false"
+              viewBox="0 0 24 24"
+              color="var(--token-e107026a-a883-45ea-8f6d-c9a0670f3ef5, rgb(39, 174, 5))"
+            >
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+            </svg>
+          </div>
+          <p>{feature}</p>
+        </li>
+      ))
+    }
+  </ul>
+  <div class="flex flex-col gap-2">
+    <button
+      class="w-full rounded-full py-3 border border-zinc-300 bg-white hover:bg-zinc-100"
+      >Ask for trial</button
+    >
+    <button
+      class="w-full rounded-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white"
+      >Buy Now</button
+    >
+  </div>
+</div>
