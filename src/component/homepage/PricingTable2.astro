@@ -1,0 +1,36 @@
+---
+const { tiers, features } = Astro.props;
+
+import IconChecklist from "../icons/IconCheck.astro";
+import IconCross from "../icons/IconX.astro";
+---
+
+<!-- Header Row -->
+<div class="flex">
+  <div class="w-1/5 font-bold p-4">Features</div>
+  {
+    tiers.map((tier) => (
+      <div class="w-1/5 font-bold text-center p-4">{tier.name}</div>
+    ))
+  }
+</div>
+
+<!-- Features and Tier Cells -->
+<div class="flex flex-col">
+  {
+    features.map((feature) => (
+      <div class="flex">
+        <div class="w-1/5 p-4 border-b">{feature.name}</div>
+        {tiers.map((tier) => (
+          <div class="w-1/5 p-4 border-b text-center">
+            {tier.features.includes(feature.name) ? (
+              <IconChecklist />
+            ) : (
+              <IconCross />
+            )}
+          </div>
+        ))}
+      </div>
+    ))
+  }
+</div>

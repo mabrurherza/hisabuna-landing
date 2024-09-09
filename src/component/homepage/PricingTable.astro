@@ -1,0 +1,69 @@
+---
+const { tiers, features } = Astro.props;
+import IconCheck from "../icons/IconCheck.astro";
+import IconX from "../icons/IconX.astro";
+---
+
+<div class="mx-auto">
+  <div class="bg-white border border-zinc-300 rounded-xl overflow-auto">
+    <!-- Header Row -->
+    <div class="flex">
+      <div class="min-w-[220px] bg-zinc-100 p-3">Features</div>
+      {
+        tiers.map((tier) => (
+          <div class="min-w-[88px] w-full text-center p-3 bg-zinc-100">
+            {tier.name}
+          </div>
+        ))
+      }
+    </div>
+    <div class="flex">
+      <div class="min-w-[220px] bg-zinc-100 px-3 py-1">Features</div>
+      <div class="min-w-[88px] w-full text-center px-3 py-1 bg-zinc-100">-</div>
+      <div
+        class="min-w-[88px] w-full text-center px-3 py-1 bg-zinc-100 leading-none font-medium text-emerald-600"
+      >
+        Rp500.000 <br />
+        <span class="text-xs text-zinc-500"> /month</span>
+      </div>
+      <div
+        class="min-w-[88px] w-full text-center px-3 py-1 bg-zinc-100 leading-none font-medium text-emerald-600"
+      >
+        Rp750.000 <br />
+        <span class="text-xs text-zinc-500"> /month</span>
+      </div>
+      <div
+        class="min-w-[88px] w-full text-center px-3 py-1 bg-zinc-100 leading-none font-medium text-emerald-600"
+      >
+        Rp1.000.000 <br />
+        <span class="text-xs text-zinc-500"> /month</span>
+      </div>
+    </div>
+
+    <!-- Features and Tier Cells -->
+    <div class="flex flex-col text-sm">
+      {
+        features.map((feature) => (
+          <div class="flex">
+            <div class="min-w-[220px] p-3 border-b border-zinc-300 border-r">
+              {feature.name}
+            </div>
+            {tiers.map((tier) => (
+              <div class="min-w-[88px] w-full p-3 border-b border-zinc-300 border-l text-center flex items-center justify-center">
+                {tier.features.includes(feature.name) ? (
+                  <div class="w-5 h-5">
+                    <IconCheck />
+                  </div>
+                ) : (
+                  <div class="w-5 h-5">
+                    <IconX />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>

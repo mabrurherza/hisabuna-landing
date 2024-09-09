@@ -2,6 +2,83 @@
 import MainLayout from "../layout/MainLayout.astro";
 import FeatureCard from "../component/homepage/FeatureCard.astro";
 import PricingCard from "../component/homepage/PricingCard.astro";
+
+import PricingTable from "../component/homepage/PricingTable.astro";
+import PricingTable2 from "../component/homepage/PricingTable2.astro";
+import Input from "../component/homepage/Input.astro";
+
+const tiers = [
+  { name: "FREE", features: ["Neraca", "Laba Rugi", "Arus Kas"], price: 0 },
+  {
+    name: "Standard",
+    price: 500000,
+    features: [
+      "Neraca",
+      "Laba Rugi",
+      "Arus Kas",
+      "Neraca Saldo",
+      "Buku Besar",
+      "Mencetak Voucher RV, PV, JV",
+    ],
+  },
+  {
+    name: "Pro",
+    price: 750000,
+    features: [
+      "Neraca",
+      "Laba Rugi",
+      "Arus Kas",
+      "Neraca Saldo",
+      "Buku Besar",
+      "Mencetak Voucher RV, PV, JV",
+      "Komparasi Laporan Keuangan",
+      "Kelengkapan audit",
+      "Analisa Laporan Keuangan",
+      "Cash Opname",
+    ],
+  },
+  {
+    name: "Enterprise",
+    price: 1000000,
+    features: [
+      "Neraca",
+      "Laba Rugi",
+      "Arus Kas",
+      "Neraca Saldo",
+      "Buku Besar",
+      "Mencetak Voucher RV, PV, JV",
+      "Komparasi Laporan Keuangan",
+      "Kelengkapan audit",
+      "Analisa Laporan Keuangan",
+      "Cash Opname",
+      "Kwitansi",
+      "Upload bukti transaksi",
+      "Anggaran",
+      "Kebijakan Akuntansi",
+      "Laporan dalam dua bahasa",
+      "Bilingual",
+    ],
+  },
+];
+
+const features = [
+  { name: "Neraca" },
+  { name: "Laba Rugi" },
+  { name: "Arus Kas" },
+  { name: "Neraca Saldo" },
+  { name: "Buku Besar" },
+  { name: "Mencetak Voucher RV, PV, JV" },
+  { name: "Komparasi Laporan Keuangan" },
+  { name: "Kelengkapan audit" },
+  { name: "Analisa Laporan Keuangan" },
+  { name: "Cash Opname" },
+  { name: "Kwitansi" },
+  { name: "Upload bukti transaksi" },
+  { name: "Anggaran" },
+  { name: "Kebijakan Akuntansi" },
+  { name: "Laporan dalam dua bahasa" },
+  { name: "Bilingual" },
+];
 ---
 
 <MainLayout>
@@ -9,32 +86,32 @@ import PricingCard from "../component/homepage/PricingCard.astro";
     class="bg-superlight h-full lg:h-[90svh] w-full pt-32 lg:pt-24 px-5 lg:px-16 pb-5 gap-5 flex flex-col-reverse justify-between lg:flex-row items-center"
   >
     <div class="flex flex-col gap-5 w-full flex-1">
-      <h1 class="text-4xl text-emerald-900 w-full">
-        Effortless Accounting, Elevated Results.
+      <h1
+        class="text-4xl lg:text-5xl font-light leading-snug text-emerald-900 w-full break-words"
+      >
+        Kelola Keuangan dengan Mudah, <br /> Hasilkan Laporan dengan Maksimal
       </h1>
-      <p class="text-lg leading-snug max-w-[600px] w-full">
-        Simplify your financial journey with our intuitive Accounting App.
-        Streamline processes, enhance accuracy, and drive your business forward.
-        Get started today for a smarter, more efficient approach to financial
-        management.
+      <p class="text-lg leading-relaxed max-w-[600px] w-full">
+        HISABUNA, solusi akuntansi yang dirancang untuk semua level bisnis.
+        Minim input, hasilkan laporan keuangan yang lengkap dan akurat.
       </p>
-      <div class="flex flex-col lg:flex-row gap-3 w-full max-w-[600px]">
+      <div class="flex flex-col lg:flex-row gap-3 w-full max-w-[600px] mt-5">
         <a href="#pricing" class="w-full">
           <button
             class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-full text-lg w-full"
-            >See pricing</button
+            >Lihat Harga</button
           >
         </a>
         <button
           class="border border-zinc-300 hover:bg-zinc-100 px-8 py-3 rounded-full text-lg w-full"
-          >Ask for trial</button
+          >Tanyakan Trial</button
         >
       </div>
     </div>
     <div class="grid place-items-center flex-1">
       <img
         class="w-full"
-        src="/asset/mockup-hisabuna.png"
+        src="/asset/mockup-hisabuna-top.png"
         alt="Preview of Hisabuna App"
       />
     </div>
@@ -42,35 +119,35 @@ import PricingCard from "../component/homepage/PricingCard.astro";
 
   <section class="py-10 px-5 md:px-16 md:py-24 border-b border-zinc-300">
     <h2 class="text-3xl md:text-4xl text-emerald-900 max-w-[400px] pb-16">
-      All your payments and cash flow needs, sorted.
+      Kenapa Harus Hisabuna?
     </h2>
 
     <div class="flex flex-col md:flex-row gap-10">
       <FeatureCard
-        title="Feature #1"
-        description="Pay suppliers or employees globally with a single click. Save hours every week by removing data entry. Collaborate with maintained control using approval flows."
-        image="/asset/dummy-feature-1.webp"
+        title="Kemudahan Penggunaan"
+        description="HISABUNA dirancang agar mudah digunakan oleh siapa saja, bahkan pemula yang tidak memiliki latar belakang akuntansi. Anda akan dipandu dalam setiap langkah pengelolaan jurnal keuangan, sehingga tidak perlu khawatir salah langkah."
+        image="/asset/mockup-produk-1.png"
       />
       <FeatureCard
-        title="Feature #2"
-        description="Access pre-approved credit to pay suppliers later, or unlock Instant Payouts from customer invoices. View all incoming & outgoing cash flows in one place."
-        image="/asset/dummy-feature-2.webp"
+        title="Input Data Minimal, Laporan Maksimal"
+        description="Cukup masukkan data jurnal saja, HISABUNA secara otomatis akan menghasilkan berbagai laporan akuntansi lengkap, seperti Neraca, Laporan Laba Rugi, hingga Laporan Arus Kas."
+        image="/asset/mockup-produk-2.png"
       />
       <FeatureCard
-        title="Feature #3"
-        description="Offer customers beautiful payment portals and flexible payment terms. Set up reminders and direct debits. Or access instant payouts. All with automated reconciliation."
-        image="/asset/dummy-feature-3.webp"
+        title="Kustomisasi Sesuai Kebutuhan Bisnis"
+        description="Atur sendiri bagan akun, saldo awal, dan akun arus kas sesuai dengan karakteristik bisnis Anda. HISABUNA fleksibel dan dapat disesuaikan dengan struktur keuangan entitas bisnis apapun."
+        image="/asset/mockup-produk-3.png"
       />
     </div>
   </section>
 
-  <section class="py-10 px-5 md:py-16 md:px-16 bg-superlight" id="pricing">
+  <!-- <section class="py-10 px-5 md:py-16 md:px-16 bg-superlight" id="pricing">
     <h2 class="text-3xl md:text-4xl text-emerald-800 max-w-[400px] pb-10">
       Pricing
     </h2>
     <div class="flex flex-col md:flex-row gap-10">
       <PricingCard
-        subtitle="Starter"
+        subtitle="2 MONTHS TRIAL"
         price="Free"
         features={[
           "Unlimited payroll payments",
@@ -98,6 +175,102 @@ import PricingCard from "../component/homepage/PricingCard.astro";
           "Hisabuna Professional",
         ]}
       />
+    </div>
+  </section> -->
+  <section class="py-10 px-5 md:py-16 md:px-16 bg-superlight" id="pricing">
+    <h2 class="text-3xl md:text-4xl text-emerald-800 max-w-[400px] pb-10">
+      Pricing
+    </h2>
+    <div class="">
+      <PricingTable tiers={tiers} features={features} />
+    </div>
+  </section>
+
+  <section class="py-10 px-5 md:py-32 md:px-16">
+    <div
+      class="bg-superlight w-full lg:h-[600px] rounded-lg flex flex-col lg:flex-row gap-5"
+    >
+      <div class="flex flex-col gap-5 flex-1 p-5 lg:p-10 h-full justify-center">
+        <h2 class="text-3xl md:text-4xl text-emerald-800 max-w-[400px]">
+          Jasa Penulisan Laporan Keuangan
+        </h2>
+        <p class="text-lg font-light leading-loose">
+          Jika Anda tidak memiliki waktu atau sumber daya untuk menangani
+          pencatatan dan pembuatan laporan akuntansi, tim profesional kami siap
+          melakukannya untuk Anda. Dengan pengalaman dan keahlian di bidang
+          keuangan, kami akan memastikan semua laporan akuntansi Anda
+          terselesaikan dengan akurat dan tepat waktu.
+        </p>
+        <button
+          class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-full text-lg w-fit"
+          >Hubungi Kami</button
+        >
+      </div>
+
+      <div class="flex-1 pt-5 hidden lg:block">
+        <img
+          src="/asset/manstanding.png"
+          alt="Dummy Feature 4"
+          class="w-full h-full object-contain"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="flex flex-col gap-5 lg:flex-row py-10 px-5 md:py-16 md:px-16 bg-superlight"
+    id="pricing"
+  >
+    <div class="flex-1 p-0 lg:p-10 flex flex-col gap-5">
+      <p class="bg-emerald-900 text-white w-fit px-3 py-1 rounded-full">
+        Pelatihan HISABUNA
+      </p>
+      <h2 class="text-3xl md:text-4xl text-emerald-800 pb-2">
+        Pelajari Cara Menggunakan HISABUNA dalam Waktu Singkat
+      </h2>
+      <p>
+        Kami menawarkan sesi pelatihan yang dirancang untuk membantu Anda
+        memaksimalkan penggunaan HISABUNA. Jadwalkan pelatihan sekarang dan
+        mulai kelola keuangan bisnis Anda dengan percaya diri.
+      </p>
+    </div>
+    <div class="flex-1 p-0 lg:p-10">
+      <form action="" class="flex flex-col gap-5">
+        <Input
+          id="nama"
+          label="Nama"
+          placeholder="Masukkan Nama Anda"
+          type="text"
+        />
+        <Input
+          id="perusahaan"
+          label="Perusahaan"
+          placeholder="Masukkan nama perusahaan Anda"
+          type="text"
+        />
+        <Input
+          id="email"
+          label="Email"
+          placeholder="Masukkan Email Anda"
+          type="email"
+        />
+
+        <div>
+          <label for="handphone" class="block mb-1">Handphone</label>
+          <input
+            type="tel"
+            placeholder="Masukkan nomor handphone Anda"
+            class="border border-zinc-300 p-2 rounded-md w-full"
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-2 rounded-full text-lg w-fit"
+        >
+          Request Jadwal Pelatihan
+        </button>
+      </form>
     </div>
   </section>
 </MainLayout>
