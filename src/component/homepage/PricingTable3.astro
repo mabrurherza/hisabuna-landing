@@ -1,0 +1,98 @@
+---
+import IconCheck from "../icons/IconCheck.astro";
+const pricingTiers = [
+  {
+    name: "Free",
+    price: "0",
+    additionalFeatures: [
+      "Neraca",
+      "Laba Rugi",
+      "Arus Kas",
+      "Neraca Saldo",
+      "Buku Besar",
+    ],
+  },
+  {
+    name: "Standard",
+    price: 500000,
+    baseTier: "Free", // Reference to the lower tier
+    additionalFeatures: [
+      "Mencetak Voucher RV, PV, JV",
+      "Komparasi Laporan Keuangan",
+      "Kelengkapan audit",
+    ],
+  },
+  {
+    name: "Pro",
+    price: 75000,
+    baseTier: "Standard", // Reference to the lower tier
+    additionalFeatures: [
+      "Analisa Laporan Keuangan",
+      "Cash Opname",
+      "Kwitansi",
+      "Upload bukti transaksi",
+    ],
+  },
+  {
+    name: "Enterprise",
+    price: 1000000,
+    baseTier: "Pro", // Reference to the lower tier
+    additionalFeatures: [
+      "Anggaran",
+      "Kebijakan Akuntansi",
+      "Laporan dalam dua bahasa",
+    ],
+  },
+];
+
+function formatPriceToIDR(price) {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0, // Remove decimal if not needed
+  }).format(price);
+}
+---
+
+<section
+  class="pricing flex bg-superlight gap-5 overflow-x-scroll px-5 md:px-16 snap-x"
+>
+  {
+    pricingTiers.map((tier) => (
+      <div class="tier bg-white p-4 rounded-xl flex flex-col gap-5 min-w-[340px] w-full snap-center">
+        <h3 class="text-xl">{tier.name}</h3>
+        <p class="text-emerald-600 font-medium pb-3 border-b border-slate-300 text-xl">
+          {formatPriceToIDR(tier.price)}{" "}
+          <span class="text-sm text-gray-500">/month</span>
+        </p>
+
+        {tier.baseTier ? (
+          <p>Semua fitur yang ada pada {tier.baseTier} tier, plus:</p>
+        ) : (
+          <p>Fitur dasar:</p>
+        )}
+
+        <ul class="h-[124px]">
+          {tier.additionalFeatures &&
+            tier.additionalFeatures.map((feature) => (
+              <li class="flex items-center gap-3">
+                <div class="w-4 h-4">
+                  <IconCheck />
+                </div>{" "}
+                <p class="text-base">{feature}</p>
+              </li>
+            ))}
+        </ul>
+
+        <div class="flex gap-3">
+          <button class="bg-white border w-full border-slate-300 rounded-full py-3">
+            Coba trial
+          </button>
+          <button class="bg-emerald-600 w-full text-white rounded-full py-3">
+            Pesan
+          </button>
+        </div>
+      </div>
+    ))
+  }
+</section>

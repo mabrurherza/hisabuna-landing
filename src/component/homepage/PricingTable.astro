@@ -2,6 +2,60 @@
 const { tiers, features } = Astro.props;
 import IconCheck from "../icons/IconCheck.astro";
 import IconX from "../icons/IconX.astro";
+
+const tiers = [
+  { name: "FREE", features: ["Neraca", "Laba Rugi", "Arus Kas"], price: 0 },
+  {
+    name: "Standard",
+    price: 500000,
+    features: [
+      "Neraca",
+      "Laba Rugi",
+      "Arus Kas",
+      "Neraca Saldo",
+      "Buku Besar",
+      "Mencetak Voucher RV, PV, JV",
+    ],
+  },
+  {
+    name: "Pro",
+    price: 750000,
+    features: [
+      "Neraca",
+      "Laba Rugi",
+      "Arus Kas",
+      "Neraca Saldo",
+      "Buku Besar",
+      "Mencetak Voucher RV, PV, JV",
+      "Komparasi Laporan Keuangan",
+      "Kelengkapan audit",
+      "Analisa Laporan Keuangan",
+      "Cash Opname",
+    ],
+  },
+  {
+    name: "Enterprise",
+    price: 1000000,
+    features: [
+      "Neraca",
+      "Laba Rugi",
+      "Arus Kas",
+      "Neraca Saldo",
+      "Buku Besar",
+      "Mencetak Voucher RV, PV, JV",
+      "Komparasi Laporan Keuangan",
+      "Kelengkapan audit",
+      "Analisa Laporan Keuangan",
+      "Cash Opname",
+      "Kwitansi",
+      "Upload bukti transaksi",
+      "Anggaran",
+      "Kebijakan Akuntansi",
+      "Laporan dalam dua bahasa",
+      "Bilingual",
+    ],
+  },
+];
 ---
 
 <div class="mx-auto">

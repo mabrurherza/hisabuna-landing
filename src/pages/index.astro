@@ -5,61 +5,8 @@ import PricingCard from "../component/homepage/PricingCard.astro";
 
 import PricingTable from "../component/homepage/PricingTable.astro";
 import PricingTable2 from "../component/homepage/PricingTable2.astro";
+import PricingTable3 from "../component/homepage/PricingTable3.astro";
 import Input from "../component/homepage/Input.astro";
-
-const tiers = [
-  { name: "FREE", features: ["Neraca", "Laba Rugi", "Arus Kas"], price: 0 },
-  {
-    name: "Standard",
-    price: 500000,
-    features: [
-      "Neraca",
-      "Laba Rugi",
-      "Arus Kas",
-      "Neraca Saldo",
-      "Buku Besar",
-      "Mencetak Voucher RV, PV, JV",
-    ],
-  },
-  {
-    name: "Pro",
-    price: 750000,
-    features: [
-      "Neraca",
-      "Laba Rugi",
-      "Arus Kas",
-      "Neraca Saldo",
-      "Buku Besar",
-      "Mencetak Voucher RV, PV, JV",
-      "Komparasi Laporan Keuangan",
-      "Kelengkapan audit",
-      "Analisa Laporan Keuangan",
-      "Cash Opname",
-    ],
-  },
-  {
-    name: "Enterprise",
-    price: 1000000,
-    features: [
-      "Neraca",
-      "Laba Rugi",
-      "Arus Kas",
-      "Neraca Saldo",
-      "Buku Besar",
-      "Mencetak Voucher RV, PV, JV",
-      "Komparasi Laporan Keuangan",
-      "Kelengkapan audit",
-      "Analisa Laporan Keuangan",
-      "Cash Opname",
-      "Kwitansi",
-      "Upload bukti transaksi",
-      "Anggaran",
-      "Kebijakan Akuntansi",
-      "Laporan dalam dua bahasa",
-      "Bilingual",
-    ],
-  },
-];
 
 const features = [
   { name: "Neraca" },
@@ -87,7 +34,7 @@ const features = [
   >
     <div class="flex flex-col gap-5 w-full flex-1">
       <h1
-        class="text-4xl lg:text-5xl font-light leading-snug text-emerald-900 w-full break-words"
+        class="text-4xl lg:text-5xl leading-snug text-emerald-900 w-full break-words"
       >
         Kelola Keuangan dengan Mudah, <br /> Hasilkan Laporan dengan Maksimal
       </h1>
@@ -177,13 +124,13 @@ const features = [
       />
     </div>
   </section> -->
-  <section class="py-10 px-5 md:py-16 md:px-16 bg-superlight" id="pricing">
-    <h2 class="text-3xl md:text-4xl text-emerald-800 max-w-[400px] pb-10">
-      Pricing
+  <section class="py-10 md:py-16 bg-superlight" id="pricing">
+    <h2
+      class="text-3xl md:text-4xl text-emerald-800 max-w-[400px] pb-10 px-5 md:px-16"
+    >
+      Harga
     </h2>
-    <div class="">
-      <PricingTable tiers={tiers} features={features} />
-    </div>
+    <PricingTable3 />
   </section>
 
   <section class="py-10 px-5 md:py-32 md:px-16">
@@ -194,7 +141,7 @@ const features = [
         <h2 class="text-3xl md:text-4xl text-emerald-800 max-w-[400px]">
           Jasa Penulisan Laporan Keuangan
         </h2>
-        <p class="text-lg font-light leading-loose">
+        <p class="">
           Jika Anda tidak memiliki waktu atau sumber daya untuk menangani
           pencatatan dan pembuatan laporan akuntansi, tim profesional kami siap
           melakukannya untuk Anda. Dengan pengalaman dan keahlian di bidang
@@ -228,7 +175,7 @@ const features = [
       <h2 class="text-3xl md:text-4xl text-emerald-800 pb-2">
         Pelajari Cara Menggunakan HISABUNA dalam Waktu Singkat
       </h2>
-      <p>
+      <p class="">
         Kami menawarkan sesi pelatihan yang dirancang untuk membantu Anda
         memaksimalkan penggunaan HISABUNA. Jadwalkan pelatihan sekarang dan
         mulai kelola keuangan bisnis Anda dengan percaya diri.
