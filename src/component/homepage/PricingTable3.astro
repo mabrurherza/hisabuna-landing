@@ -24,7 +24,7 @@ const pricingTiers = [
   },
   {
     name: "Pro",
-    price: 75000,
+    price: 875000,
     baseTier: "Standard", // Reference to the lower tier
     additionalFeatures: [
       "Analisa Laporan Keuangan",
@@ -35,7 +35,7 @@ const pricingTiers = [
   },
   {
     name: "Enterprise",
-    price: 1000000,
+    price: 1250000,
     baseTier: "Pro", // Reference to the lower tier
     additionalFeatures: [
       "Anggaran",
@@ -63,7 +63,7 @@ function formatPriceToIDR(price) {
         <h3 class="text-xl">{tier.name}</h3>
         <p class="text-emerald-600 font-medium pb-3 border-b border-slate-300 text-xl">
           {formatPriceToIDR(tier.price)}{" "}
-          <span class="text-sm text-gray-500">/month</span>
+          <span class="text-sm text-gray-500">/bulan</span>
         </p>
 
         {tier.baseTier ? (
